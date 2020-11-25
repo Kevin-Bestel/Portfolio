@@ -113,3 +113,14 @@ p {
     color: #ffa500;
     cursor: pointer;
 }
+
+
+.accordion-trigger-container > *, .sub-accordion-trigger-container > *{
+    display:none !important;
+}
+.accordion-trigger-container > .fullBrackets, .sub-accordion-trigger-container > .fullBrackets{
+    display:inline-block !important;
+}
+.accordion-trigger-container.active > *, .sub-accordion-trigger-container.active > *{
+    display:block !important;
+}
