@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+html body {
+    height: 100%;
+    width: 100%;
+}
+
+p {
+    font-family: monospace;
+}
+
+/* Hier handelt es sich um mein Template - Grid */
+#wholeContainer {
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+
+    grid-row-start: 1;
+    grid-column: colStart / colEnd;
+
+    grid-template-columns: [colStart col1]12.5% [col2]12.5%  [col3]12.5%  [col4]12.5%  [col5]12.5% [col6]12.5% [col7]12.5% [col8]12.5%  [colEnd];
+    grid-template-rows: [header]80px [gal1]400px  [gal2]400px [afteral footer]200px;
+
+    column-gap: 1px;
+    row-gap: 1px;
+
+}
+
+/* ist das <div> welches die container 1+2 umfasst */
+#codeEditor{
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    grid-column-end: colEnd;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+/* Konsole */
+.container1 {
+    float: right;
+    height: 209.35%;
+    width: calc(95% - 1px);
+    z-index: 9998;
+
+    background-color: rgb(61, 61, 61);
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    grid-column-end: colEnd;
+}
+
+/* Konsolennavigation */
+.container2 {
+    width: 5%;
+    border-right: 1px solid rgb(99, 99, 99);
+    z-index: 9999;
+
+    background-color: rgb(66, 66, 66);
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.container2 > p {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 8px;
+    color: rgb(99, 99, 99);
+    padding-bottom: 2.5%;
+
+}
+
+/* Header */
+.container3 {
+    background-color: rgb(99, 99, 99);
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 1;
+    grid-column-end: colEnd;
+}
+.container3 > p{
+    font-family: monospace;
+    color: #ffffff;
+    padding-left: 10px;
+    display: inline-block;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Dateipfad */
+.container4 {
+    background-color: rgb(99, 99, 99);
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+/* Footer */
+.container5 {
+    background-color: rgb(99, 99, 99);
+    grid-row-start: 4;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: colEnd;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
