@@ -7,12 +7,13 @@
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
 }
-
 html body {
     height: 100%;
     width: 100%;
 }
-
+:root{
+    font-size: 16px;
+}
 p {
     font-family: monospace;
 }
@@ -30,8 +31,6 @@ p {
     grid-template-columns: [colStart col1]12.5% [col2]12.5%  [col3]12.5%  [col4]12.5%  [col5]12.5% [col6]12.5% [col7]12.5% [col8]12.5%  [colEnd];
     grid-template-rows: [header]80px [gal1]400px  [gal2]400px [afteral footer]200px;
 
-    column-gap: 1px;
-    row-gap: 1px;
 
 }
 
@@ -48,11 +47,11 @@ p {
 /* Konsole */
 .container1 {
     float: right;
-    height: 209.35%;
+    height: 209.75%;
     width: calc(95% - 1px);
     z-index: 9998;
 
-    background-color: rgb(61, 61, 61);
+    background-color: rgb(43, 43, 43);
     grid-row-start: 2;
     grid-row-end: 4;
     grid-column-start: 3;
@@ -62,10 +61,12 @@ p {
 /* Konsolennavigation */
 .container2 {
     width: 5%;
-    border-right: 1px solid rgb(99, 99, 99);
+    border-right: 1px solid rgb(66, 66, 66);
+    border-left: 1px solid rgb(43, 43, 43);
+    border-bottom: 1px solid rgb(43, 43, 43);
     z-index: 9999;
 
-    background-color: rgb(66, 66, 66);
+    background-color: rgb(51, 51, 51);
     grid-row-start: 2;
     grid-row-end: 4;
     grid-column-start: 3;
@@ -84,7 +85,9 @@ p {
 
 /* Header */
 .container3 {
-    background-color: rgb(99, 99, 99);
+    border-bottom: 1px solid rgb(43, 43, 43);
+
+    background-color: rgb(66, 66, 66);
     grid-row-start: 1;
     grid-row-end: 1;
     grid-column-start: 1;
@@ -101,44 +104,97 @@ p {
 }
 
 /* Dateipfad */
-.container4 {
-    background-color: rgb(99, 99, 99);
+.filePath{
     grid-row-start: 2;
     grid-row-end: 4;
     grid-column-start: 1;
     grid-column-end: 3;
 }
+.container4 {
+    height: 100%;
+    width: calc(90% - 1px);
+    float: right;
+
+    background-color: rgb(66, 66, 66);
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+/* Dateipfad - linke Spalte */
+.container5{
+    height: 100%;
+    width: 10%;
+    border-right: 1px solid rgb(43, 43, 43);
+
+    background-color: rgb(66, 66, 66);
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.container5 > p{
+    color: #ffffff;
+    font-size: 1.0rem;
+    transform: rotate(270deg);
+    display: inline-block;
+    justify-content: space-around;
+    align-items: center;
+}
 
 /* Footer */
-.container5 {
-    background-color: rgb(99, 99, 99);
+.container6 {
+    border-top: 1px solid rgb(43, 43, 43);
+
+    background-color: rgb(66, 66, 66);
     grid-row-start: 4;
     grid-row-end: 4;
     grid-column-start: 1;
     grid-column-end: colEnd;
 }
 
-/* Styling der Inhalte im #CodeEditor */
+/*
+*Der Start*
+Styling der Inhalte im #CodeEditor
+*/
+
+.container1 > div > p {
+    display: inline-block;
+}
+
+.container1 > div > div > p {
+    display: inline-block;
+}
 
 .function {
-    color: red;
+    color: #808080;
 }
 
 .function-name {
-    color: red;
+    color: #add8e6;
 }
 
 .function-brackets {
-    color: red;
+    color: #ffff00;
 }
 
 .fullBrackets {
-    color: red;
+    color: #ffa500;
     cursor: pointer;
 }
-.container1 > p{
-    display: inline-block;
+
+.openBracket {
+    color: #ffa500;
+    cursor: pointer;
 }
+
+.closeBracket {
+    color: #ffa500;
+    cursor: pointer;
+}
+
+
 
 
 
