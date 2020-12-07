@@ -23,6 +23,7 @@ p {
 #wholeContainer {
     height: 100%;
     width: 100%;
+    position: relative;
 
     display: grid;
 
@@ -104,7 +105,7 @@ p {
 /* Dateipfad */
 .filePath{
     grid-row-start: 2;
-    grid-row-end: 4;
+    grid-row-end: end;
     grid-column-start: 1;
     grid-column-end: 3;
 }
@@ -127,6 +128,7 @@ p {
 .container5{
     height: 100%;
     width: 10%;
+
     border-right: 1px solid rgb(43, 43, 43);
 
     background-color: rgb(66, 66, 66);
@@ -141,18 +143,15 @@ p {
     font-size: 1.0rem;
     transform: rotate(270deg);
     display: inline-block;
-    top: 0;
 }
 
 /* Footer */
 .container6 {
     height: 100%;
-    width: 100%;
-    display:flex;
-    justify-content: center;
-    align-items: center;
+    width: 97.5%;
 
-    border-top: 1px solid rgb(43, 43, 43);
+
+
 
     background-color: rgb(66, 66, 66);
     grid-row-start: 4;
@@ -160,11 +159,7 @@ p {
     grid-column-start: 1;
     grid-column-end: colEnd;
 }
-.container6 > .sizable{
-    background-color:rgb(66,66,66);
-    width:50%;
-    height:50%;
-}
+
 
 /*
 *Der Start*
@@ -243,10 +238,11 @@ Hier wird das Dropdown-Menu angepasst!
 }
 
 .dropdown-content a {
-    color: black;
+    color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    z-index: 9989;
 }
 
 .dropdown a:hover {background-color: #ddd;}
