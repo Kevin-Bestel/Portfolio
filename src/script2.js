@@ -36,3 +36,101 @@ function openAccordion(e) {
 -Das Ende-
 Diese Funktion bewirkt, dass die einzelnen Tags mit einer click-funktion aufgeklappt werden können.
 */
+
+/*
+-Der Start-
+Diese Funktion bewirkt, dass das Terminal mit der Maus nach oben gezogen werden kann (vergrößern)
+*/
+
+window.onload = function () {
+    bindSizables();
+}
+
+function bindSizables() {
+    let sizableElements = document.getElementsByClassName("sizable");
+    for (let i = 0; i < sizableElements.length; i++) {
+        const element = sizableElements[i];
+        element.addEventListener("pointerdown", handlePointerDown);
+        element.addEventListener("pointerup", handlePointerDown);
+        element.addEventListener("pointerleave", handlePointerDown);
+        element.addEventListener("focusout", handlePointerDown);
+    }
+    let bottomToTopElements = document.getElementsByClassName("bottomToTop");
+    for (let i = 0; i < bottomToTopElements.length; i++) {
+        const element = bottomToTopElements[i];
+        element.addEventListener("pointermove", bottomToTop);
+    }
+    let leftToRightElements = document.getElementsByClassName("leftToRight");
+    for (let i = 0; i < leftToRightElements.length; i++) {
+        const element = leftToRightElements[i];
+        element.addEventListener("pointermove", leftToRight);
+    }
+}
+
+let touchableArea = 50;
+
+let pointerDown = false;
+
+function handlePointerDown(e) {
+    if (e.type == "pointerdown") {
+        if (e.offsetY < touchableArea && e.srcElement.classList.contains("bottomToTop")) {
+            pointerDown = true;
+        } else if (e.srcElement.clientWidth - e.offsetX < touchableArea && e.srcElement.classList.contains("leftToRight")) {
+            pointerDown = true;
+        }
+    } else {
+        pointerDown = false;
+    }
+}
+
+function bottomToTop(e) {
+    if (pointerDown) {
+        let boxLowerEdge = e.srcElement.offsetTop + e.srcElement.clientHeight;
+        let newSize = boxLowerEdge - (e.clientY - touchableArea / 2);
+        newSize = newSize / e.srcElement.parentNode.clientHeight * 100;
+        e.srcElement.style.height = newSize + "%";
+    }
+}
+
+function leftToRight(e) {
+    if (pointerDown) {
+        let difference = e.offsetX + touchableArea / 2;
+        let relativeToParent = difference / e.srcElement.parentNode.clientWidth * 100;
+        e.srcElement.style.width = relativeToParent + "%";
+    }
+}
+
+/*
+-Das Ende-
+Diese Funktion bewirkt, dass das Terminal mit der Maus nach oben gezogen werden kann (vergrößern)
+*/
+
+/*
+-Der Start-
+Diese Funktion gibt es für das Dropdown-Menu (Directory)
+*/
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+/*
+-Das Ende-
+Diese Funktion gibt es für das Dropdown-Menu (Directory)
+*/
