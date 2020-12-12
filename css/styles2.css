@@ -1,94 +1,109 @@
 * {
     margin: 0;
     padding: 0;
-    user-select: none; /* supported by Chrome and Opera */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    /* supported by Chrome and Opera */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
 }
+
 html body {
     height: 100%;
     width: 100%;
     overflow: hidden;
 }
-:root{
+
+:root {
     font-size: 16px;
 }
+
 p {
     font-family: monospace;
 }
 
 /* Hier handelt es sich um mein Template - Grid */
+
 #wholeContainer {
     height: 100%;
     width: 100%;
     position: relative;
-
     display: grid;
-
     grid-row-start: 1;
     grid-column: colStart / colEnd;
-
-    grid-template-columns: [colStart col1]12.5vw [col2]12.5vw  [col3]12.5vw  [col4]12.5vw  [col5]12.5vw [col6]12.5vw [col7]12.5vw [col8]12.5vw [colEnd];
-    grid-template-rows: [header]6.5vh [gal1]42vh  [gal2]42vh [afteral footer]9.5vh;
-
-
+    grid-template-columns: [colStart col1]12.5vw [col2]12.5vw [col3]12.5vw [col4]12.5vw [col5]12.5vw [col6]12.5vw [col7]12.5vw [col8]12.5vw [colEnd];
+    grid-template-rows: [header]6.5vh [gal1]42vh [gal2]42vh [afteral footer]9.5vh;
 }
 
 /* ist das <div> welches die container 1+2 umfasst */
+
+.editor-wrapper {
+    display: block;
+    height: auto;
+    min-height: 100vh;
+    overflow: scroll;
+    width: 75vw;
+    position: relative;
+    z-index: 1;
+}
+
 #codeEditor {
     grid-row-start: 2;
     grid-row-end: 4;
     grid-column-start: 3;
     grid-column-end: colEnd;
     overflow-y: scroll;
+    display: table;
     scroll-behavior: smooth;
 }
 
 /* Konsole */
-.container1 {
-    float: right;
-    height: 182.85vh;
-    width: 70vw;
-    z-index: 9998;
 
+.container1 {
+    width: 75vw;
+    z-index: 9998;
     background-color: rgb(43, 43, 43);
     grid-row-start: 2;
     grid-row-end: 4;
     grid-column-start: 3;
     grid-column-end: colEnd;
+    display: table-cell;
 }
 
 /* Konsolennavigation */
+
 .container2 {
     width: 4vw;
     border-right: 1px solid rgb(66, 66, 66);
     border-left: 1px solid rgb(43, 43, 43);
     border-bottom: 1px solid rgb(43, 43, 43);
     z-index: 9999;
-
     background-color: rgb(51, 51, 51);
     grid-row-start: 2;
     grid-row-end: 4;
     grid-column-start: 3;
     grid-column-end: 4;
+    display: table-cell;
 }
 
-.container2 > p {
+.container2>p {
     display: flex;
     align-items: center;
     justify-content: left;
     padding-left: 8px;
     color: rgb(99, 99, 99);
     padding-bottom: 2.5%;
-
 }
 
 /* Header */
+
 .container3 {
     border-bottom: 1px solid rgb(43, 43, 43);
-
     background-color: rgb(66, 66, 66);
     grid-row-start: 1;
     grid-row-end: 1;
@@ -96,50 +111,53 @@ p {
     grid-column-end: colEnd;
 }
 
-.container3 > p {
+.container3>p {
     color: #ffffff;
     padding-left: 10px;
     display: inline-block;
 }
 
 /* Dateipfad */
-.filePath{
+
+.filePath {
     grid-row-start: 2;
     grid-row-end: end;
     grid-column-start: 1;
     grid-column-end: 3;
 }
+
 .container4 {
     height: 84vh;
     width: 22.5vw;
     float: right;
-
     background-color: rgb(66, 66, 66);
     grid-row-start: 2;
     grid-row-end: 4;
     grid-column-start: 1;
     grid-column-end: 3;
 }
-.container4 > div{
+
+.container4>div {
     color: #ffffff;
     font-size: 1.0rem;
 }
+
 /* Dateipfad - linke Spalte */
-.container5{
+
+.container5 {
     height: 100vh;
     width: 2.5vw;
     position: relative;
-
     border-right: 1px solid rgb(43, 43, 43);
-
     background-color: rgb(66, 66, 66);
     grid-row-start: 2;
     grid-row-end: 4;
     grid-column-start: 1;
     grid-column-end: 2;
+    z-index: 2;
 }
 
-.container5 > p{
+.container5>p {
     color: #ffffff;
     font-size: 1.0rem;
     transform: rotate(270deg);
@@ -148,35 +166,37 @@ p {
 }
 
 /* Footer */
+
 .terminal {
     height: 100vh;
     width: 97.5vw;
     padding-left: 2.5vw;
-
     border-top: 1px solid rgb(43, 43, 43);
-
     background-color: rgb(66, 66, 66);
     grid-row-start: 4;
     grid-row-end: 4;
     grid-column-start: 1;
     grid-column-end: colEnd;
+    position: relative;
+    z-index: 1;
 }
-.container6{
+
+.container6 {
     height: 2vh;
     width: 100vw;
-
     border-bottom: 1px solid rgb(43, 43, 43);
     background-color: rgb(66, 66, 66);
 }
-.container6 > p{
+
+.container6>p {
     color: #ffffff;
     font-size: 1rem;
     padding-left: 5px;
 }
-.container7{
+
+.container7 {
     height: 7.5vh;
     width: 100vw;
-
     top: 0;
     background-color: rgb(66, 66, 66);
 }
@@ -185,22 +205,22 @@ p {
 *Der Start*
 Styling der Inhalte im #CodeEditor
 */
-.accordionContainer {
-    padding-top: 4vh;
-    padding-left: 2.5vw;
 
+.accordionContainer {
+    padding-top: 1vh;
+    padding-left: 2.5vw;
 }
 
-.accordionContainer > div {
+.accordionContainer>div {
     padding-top: 1.5vh;
     padding-left: 2.5vw;
 }
 
-.container1 > div > p {
+.container1>div>p {
     display: inline-block;
 }
 
-.container1 > div > div > p {
+.container1>div>div>p {
     display: inline-block;
 }
 
@@ -231,7 +251,6 @@ Styling der Inhalte im #CodeEditor
     cursor: pointer;
 }
 
-
 /*
 -Der Start-
 Hier wird das Dropdown-Menu angepasst!
@@ -254,7 +273,6 @@ Hier wird das Dropdown-Menu angepasst!
 .dropdown {
     padding-top: 1vh;
     padding-left: 0.5vw;
-
     float: left;
     position: relative;
     display: inline-block;
@@ -265,11 +283,10 @@ Hier wird das Dropdown-Menu angepasst!
     position: relative;
     background-color: rgb(66, 66, 66);
     font-size: 1rem;
-
     display: none;
     min-width: 150px;
     overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     right: 0;
     z-index: 1;
 }
@@ -282,45 +299,15 @@ Hier wird das Dropdown-Menu angepasst!
     z-index: 9989;
 }
 
-.dropdown a:hover {background-color: #ddd;}
+.dropdown a:hover {
+    background-color: #ddd;
+}
 
-#myDropdown.show {display: inline-block;}
+#myDropdown.show {
+    display: inline-block;
+}
 
 /*
 -Das Ende-
 Hier wird das Dropdown-Menu angepasst!
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
