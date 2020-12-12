@@ -185,6 +185,16 @@ p {
 *Der Start*
 Styling der Inhalte im #CodeEditor
 */
+.accordionContainer {
+    padding-top: 4vh;
+    padding-left: 2.5vw;
+
+}
+
+.accordionContainer > div {
+    padding-top: 1.5vh;
+    padding-left: 2.5vw;
+}
 
 .container1 > div > p {
     display: inline-block;
@@ -251,12 +261,12 @@ Hier wird das Dropdown-Menu angepasst!
 }
 
 .dropdown-content {
-    display: block;
     margin-left: 2.5vw;
     position: relative;
     background-color: rgb(66, 66, 66);
     font-size: 1rem;
 
+    display: none;
     min-width: 150px;
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -274,7 +284,7 @@ Hier wird das Dropdown-Menu angepasst!
 
 .dropdown a:hover {background-color: #ddd;}
 
-.show {display: block;}
+#myDropdown.show {display: inline-block;}
 
 /*
 -Das Ende-
