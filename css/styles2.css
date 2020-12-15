@@ -14,8 +14,8 @@
 }
 
 html body {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     overflow: hidden;
 }
 
@@ -53,6 +53,9 @@ p {
 }
 
 #codeEditor {
+    height: 100%;
+    width: 100%;
+
     grid-row-start: 2;
     grid-row-end: 4;
     grid-column-start: 3;
@@ -91,7 +94,7 @@ p {
     display: table-cell;
 }
 
-.container2>p {
+.container2 > p {
     display: flex;
     align-items: center;
     justify-content: left;
@@ -111,7 +114,7 @@ p {
     grid-column-end: colEnd;
 }
 
-.container3>p {
+.container3 > p {
     color: #ffffff;
     padding-left: 10px;
     display: inline-block;
@@ -124,6 +127,8 @@ p {
     grid-row-end: end;
     grid-column-start: 1;
     grid-column-end: 3;
+    display:flex;
+    justify-content: flex-start;
 }
 
 .container4 {
@@ -135,9 +140,10 @@ p {
     grid-row-end: 4;
     grid-column-start: 1;
     grid-column-end: 3;
+    transition: 4ms;
 }
 
-.container4>div {
+.container4 > div {
     color: #ffffff;
     font-size: 1.0rem;
 }
@@ -157,12 +163,12 @@ p {
     z-index: 2;
 }
 
-.container5>p {
+.container5 > div {
     color: #ffffff;
     font-size: 1.0rem;
-    transform: rotate(270deg);
-    padding-right: 5.5vw;
-    padding-bottom: 5.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Footer */
@@ -188,7 +194,7 @@ p {
     background-color: rgb(66, 66, 66);
 }
 
-.container6>p {
+.container6 > p {
     color: #ffffff;
     font-size: 1rem;
     padding-left: 5px;
@@ -202,25 +208,29 @@ p {
 }
 
 /*
-*Der Start*
-Styling der Inhalte im #CodeEditor
-*/
+-Der Start-
+Hier wird die Funktion im Code-Editor dargestellt!
+ */
 
 .accordionContainer {
     padding-top: 1vh;
     padding-left: 2.5vw;
 }
 
-.accordionContainer>div {
+.accordionContainer > div {
     padding-top: 1.5vh;
     padding-left: 2.5vw;
 }
 
-.container1>div>p {
+.subaccordionContainer {
     display: inline-block;
 }
 
-.container1>div>div>p {
+.container1 > div > p {
+    display: inline-block;
+}
+
+.container1 > div > div > p {
     display: inline-block;
 }
 
@@ -252,6 +262,44 @@ Styling der Inhalte im #CodeEditor
 }
 
 /*
+.accordionContainer > *, .subaccordionContainer > *{
+    display:none !important;
+}
+.accordionContainer > .fullBrackets, .subaccordionContainer > .fullBrackets{
+    display:inline-block !important;
+}
+.accordionContainer.active > *, .subaccordionContainer.active > *{
+    display:block !important;
+}
+*/
+
+/*
+-Das Ende-
+Hier wird die Funktion im Code-Editor dargestellt!
+*/
+
+
+/*
+-Der Start-
+Diese Funktion klappt per Transition das directory ein und vergrößert den CodeEditor!
+ */
+
+.directoryButton{
+    transform: rotate(270deg) translate(-45%);
+}
+
+
+
+/*
+-Das Ende-
+Diese Funktion klappt per Transition das directory ein und vergrößert den CodeEditor!
+ */
+
+
+
+
+
+/*
 -Der Start-
 Hier wird das Dropdown-Menu angepasst!
  */
@@ -259,7 +307,37 @@ Hier wird das Dropdown-Menu angepasst!
 .dropbtn {
     background-color: rgb(66, 66, 66);
     color: white;
-    padding: 16px;
+    padding: 10px;
+    font-size: 1rem;
+    font-family: monospace;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtnCSS {
+    background-color: rgb(66, 66, 66);
+    color: white;
+    padding: 10px;
+    font-size: 1rem;
+    font-family: monospace;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtnJS {
+    background-color: rgb(66, 66, 66);
+    color: white;
+    padding: 10px;
+    font-size: 1rem;
+    font-family: monospace;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtnSRC {
+    background-color: rgb(66, 66, 66);
+    color: white;
+    padding: 10px;
     font-size: 1rem;
     font-family: monospace;
     border: none;
@@ -267,7 +345,19 @@ Hier wird das Dropdown-Menu angepasst!
 }
 
 .dropbtn:hover, .dropbtn:focus {
-    background-color: #3e8e41;
+    background-color: rgb(0, 0, 128);
+}
+
+.dropbtnCSS:hover, .dropbtnCSS:focus {
+    background-color: rgb(0, 0, 128);
+}
+
+.dropbtnJS:hover, .dropbtnJS:focus {
+    background-color: rgb(0, 0, 128);
+}
+
+.dropbtnSRC:hover, .dropbtnSRC:focus {
+    background-color: rgb(0, 0, 128);
 }
 
 .dropdown {
@@ -291,9 +381,9 @@ Hier wird das Dropdown-Menu angepasst!
     z-index: 1;
 }
 
-.dropdown-content a {
+.dropdown-content p {
     color: white;
-    padding: 12px 16px;
+    padding: 10px;
     text-decoration: none;
     display: block;
     z-index: 9989;
@@ -307,7 +397,21 @@ Hier wird das Dropdown-Menu angepasst!
     display: inline-block;
 }
 
+#myDropdownCSS.show {
+    display: inline-block;
+}
+
+#myDropdownJS.show {
+    display: inline-block;
+}
+
+#myDropdownSRC.show {
+    display: inline-block;
+}
+
+
 /*
 -Das Ende-
 Hier wird das Dropdown-Menu angepasst!
- */
+*/
+

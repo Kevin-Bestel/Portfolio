@@ -2,55 +2,95 @@ window.onload = function () {
 
     /*
   -Der Start-
-  Diese Funktion gibt es für das Dropdown-Menu (Directory)
+  Diese Funktion gibt es für das Dropdown-Menu (directory)
   */
 
-
     let dropdown = document.getElementById('dropbtn');
+    let dropdown1 = document.getElementById('dropbtnCSS');
+    let dropdown2 = document.getElementById('dropbtnJS');
+    let dropdown3 = document.getElementById('dropbtnSRC');
     let dropdownInner = document.getElementById('myDropdown');
+    let dropdownInner1 = document.getElementById('myDropdownCSS');
+    let dropdownInner2 = document.getElementById('myDropdownJS');
+    let dropdownInner3 = document.getElementById('myDropdownSRC');
     dropdown.addEventListener("click", function () {
         dropdownInner.classList.toggle('show');
+    })
+    dropdown1.addEventListener("click", function () {
+        dropdownInner1.classList.toggle('show');
+    })
+    dropdown2.addEventListener("click", function () {
+        dropdownInner2.classList.toggle('show');
+    })
+    dropdown3.addEventListener("click", function () {
+        dropdownInner3.classList.toggle('show');
     })
 
     /*
     -Das Ende-
-    Diese Funktion gibt es für das Dropdown-Menu (Directory)
+    Diese Funktion gibt es für das Dropdown-Menu (directory)
     */
 
+    /*
+    -Der Start-
+    Diese Funktion klappt per Transition das directory ein und vergrößert den CodeEditor!
+    */
+    let editorWrapper = document.getElementsByClassName('editor-wrapper')[0];
+    let container = document.getElementById('container4');
+    let directoryContainer = document.getElementById('directoryButton');
+    directoryContainer.addEventListener("click", function () {
+        if (container.style.width != '0') {
+            container.style.width = '0';
+            editorWrapper.style.marginLeft = '-22.5vw';
+            editorWrapper.style.width = 'calc(100vw - 2.5vw)';
+        } else {
+            container.style.width = '22.5vw';
+            editorWrapper.style.marginLeft = '0vw';
+            editorWrapper.style.width = '75vw';
+        }
+    })
+
+
+    /*
+    -Das Ende-
+    Diese Funktion klappt per Transition das directory ein und vergrößert den CodeEditor!
+    */
 
     /*
     -Der Start-
     Diese Funktion bewirkt, dass die einzelnen Tags mit einer click-funktion aufgeklappt werden können.
     */
-    /*    var elements = document.getElementsByClassName("container1");
-        for (let i = 0; i < elements.length; i++) {
-            const element = elements[i];
-            element.addEventListener("click", openAccordion);
-        }
+    /*
+          var elements = document.getElementById("accordionContainer");
+          for (let i = 0; i < elements.length; i++) {
+              const element = elements[i];
+              element.addEventListener("click", openAccordion);
+          }
 
-        let singleOpenBracket = "<p class='openBracket'>{</p>";
-        let singleCloseBracket = "<p class='closeBracket'>}</p>";
-        let fullBrackets = '<p class="fullBrackets">{...}</p>';
+          let singleOpenBracket = "<p class='openBracket'>{</p>";
+          let singleCloseBracket = "<p class='closeBracket'>}</p>";
+          let fullBrackets = '<p class="fullBrackets">{...}</p>';
 
-        function openAccordion(e) {
-            let clickedElement = e.srcElement.closest("accordionContainer");
-            if (!clickedElement.classList.contains('active')) {
-                clickedElement.classList.add('active');
-                clickedElement.insertAdjacentHTML("afterbegin", singleOpenBracket);
-                clickedElement.insertAdjacentHTML("beforeend", singleCloseBracket);
-                clickedElement.getElementsByClassName("fullBrackets")[0].remove();
-            } else {
-                clickedElement.classList.remove('active');
-                clickedElement.insertAdjacentHTML("afterbegin", fullBrackets);
-                clickedElement.getElementsByClassName("openBracket")[0].remove();
-                clickedElement.getElementsByClassName("closeBracket")[0].remove();
-            }
-        }*/
-
+          function openAccordion(e) {
+              let clickedElement = e.getElementById("subaccordionContainer");
+              if (!clickedElement.classList.contains('active')) {
+                  clickedElement.classList.add('active');
+                  clickedElement.insertAdjacentHTML("afterbegin", singleOpenBracket);
+                  clickedElement.insertAdjacentHTML("beforeend", singleCloseBracket);
+                  clickedElement.getElementsByClassName("fullBrackets")[0].remove();
+              } else {
+                  clickedElement.classList.remove('active');
+                  clickedElement.insertAdjacentHTML("afterbegin", fullBrackets);
+                  clickedElement.getElementsByClassName("openBracket")[0].remove();
+                  clickedElement.getElementsByClassName("closeBracket")[0].remove();
+              }
+          }
+    */
     /*
     -Das Ende-
     Diese Funktion bewirkt, dass die einzelnen Tags mit einer click-funktion aufgeklappt werden können.
     */
+
 
     /*
     -Der Start-
