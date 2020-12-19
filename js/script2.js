@@ -53,7 +53,7 @@ window.onload = function () {
     Diese Funktion bewirkt, dass die einzelnen Tags mit einer click-funktion aufgeklappt werden können.
     */
 
-    var elements = document.getElementById("accordionContainer");
+    var elements = document.getElementsByClassName("accordionContainer");
     for (let i = 0; i < elements.length; i++) {
         const element = elements[i];
         element.addEventListener("click", openAccordion);
@@ -64,6 +64,7 @@ window.onload = function () {
     let fullBrackets = '<p class="fullBrackets">{...}</p>';
 
     function openAccordion(e) {
+        document.getElementById('accordionContainer').classList.toggle('active');
         let clickedElement = e.srcElement.closest(".fullBrackets");
         if (!clickedElement.classList.contains('active')) {
             clickedElement.classList.add('active');
