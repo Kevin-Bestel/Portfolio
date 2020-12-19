@@ -140,7 +140,6 @@ p {
     grid-row-end: 4;
     grid-column-start: 1;
     grid-column-end: 3;
-    transition: 4ms;
 }
 
 .container4 > div {
@@ -261,8 +260,8 @@ Hier wird die Funktion im Code-Editor dargestellt!
     cursor: pointer;
 }
 
-/*
-.accordionContainer > *, .subaccordionContainer > *{
+
+.accordionContainer > div .subaccordionContainer > *{
     display:none !important;
 }
 .accordionContainer > .fullBrackets, .subaccordionContainer > .fullBrackets{
@@ -271,7 +270,7 @@ Hier wird die Funktion im Code-Editor dargestellt!
 .accordionContainer.active > *, .subaccordionContainer.active > *{
     display:block !important;
 }
-*/
+
 
 /*
 -Das Ende-
@@ -303,6 +302,29 @@ Diese Funktion klappt per Transition das directory ein und vergrößert den Code
 -Der Start-
 Hier wird das Dropdown-Menu angepasst!
  */
+
+/* Dropdown-1 Einklappfunktion FilePath */
+
+#wholeContainer.hideFilePath > .editor-wrapper {
+    width: 97.5vw;
+    margin-left: -22.5vw;
+}
+
+#wholeContainer.hideFilePath > .filePath > .container4 {
+    width: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .dropbtn {
     background-color: rgb(66, 66, 66);

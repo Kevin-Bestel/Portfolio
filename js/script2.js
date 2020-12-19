@@ -35,21 +35,13 @@ window.onload = function () {
     -Der Start-
     Diese Funktion klappt per Transition das directory ein und vergrößert den CodeEditor!
     */
+
     let editorWrapper = document.getElementsByClassName('editor-wrapper')[0];
-    let container = document.getElementById('container4');
+    let container = document.getElementById('wholeContainer');
     let directoryContainer = document.getElementById('directoryButton');
     directoryContainer.addEventListener("click", function () {
-        if (container.style.width != '0') {
-            container.style.width = '0';
-            editorWrapper.style.marginLeft = '-22.5vw';
-            editorWrapper.style.width = 'calc(100vw - 2.5vw)';
-        } else {
-            container.style.width = '22.5vw';
-            editorWrapper.style.marginLeft = '0vw';
-            editorWrapper.style.width = '75vw';
-        }
-    })
-
+        container.classList.toggle('hideFilePath');
+    });
 
     /*
     -Das Ende-
@@ -60,32 +52,32 @@ window.onload = function () {
     -Der Start-
     Diese Funktion bewirkt, dass die einzelnen Tags mit einer click-funktion aufgeklappt werden können.
     */
-    /*
-          var elements = document.getElementById("accordionContainer");
-          for (let i = 0; i < elements.length; i++) {
-              const element = elements[i];
-              element.addEventListener("click", openAccordion);
-          }
 
-          let singleOpenBracket = "<p class='openBracket'>{</p>";
-          let singleCloseBracket = "<p class='closeBracket'>}</p>";
-          let fullBrackets = '<p class="fullBrackets">{...}</p>';
+    var elements = document.getElementById("accordionContainer");
+    for (let i = 0; i < elements.length; i++) {
+        const element = elements[i];
+        element.addEventListener("click", openAccordion);
+    }
 
-          function openAccordion(e) {
-              let clickedElement = e.getElementById("subaccordionContainer");
-              if (!clickedElement.classList.contains('active')) {
-                  clickedElement.classList.add('active');
-                  clickedElement.insertAdjacentHTML("afterbegin", singleOpenBracket);
-                  clickedElement.insertAdjacentHTML("beforeend", singleCloseBracket);
-                  clickedElement.getElementsByClassName("fullBrackets")[0].remove();
-              } else {
-                  clickedElement.classList.remove('active');
-                  clickedElement.insertAdjacentHTML("afterbegin", fullBrackets);
-                  clickedElement.getElementsByClassName("openBracket")[0].remove();
-                  clickedElement.getElementsByClassName("closeBracket")[0].remove();
-              }
-          }
-    */
+    let singleOpenBracket = "<p class='openBracket'>{</p>";
+    let singleCloseBracket = "<p class='closeBracket'>}</p>";
+    let fullBrackets = '<p class="fullBrackets">{...}</p>';
+
+    function openAccordion(e) {
+        let clickedElement = e.srcElement.closest(".fullBrackets");
+        if (!clickedElement.classList.contains('active')) {
+            clickedElement.classList.add('active');
+            clickedElement.insertAdjacentHTML("afterbegin", singleOpenBracket);
+            clickedElement.insertAdjacentHTML("beforeend", singleCloseBracket);
+            clickedElement.getElementsByClassName("fullBrackets")[0].remove();
+        } else {
+            clickedElement.classList.remove('active');
+            clickedElement.insertAdjacentHTML("afterbegin", fullBrackets);
+            clickedElement.getElementsByClassName("openBracket")[0].remove();
+            clickedElement.getElementsByClassName("closeBracket")[0].remove();
+        }
+    }
+
     /*
     -Das Ende-
     Diese Funktion bewirkt, dass die einzelnen Tags mit einer click-funktion aufgeklappt werden können.
@@ -96,6 +88,7 @@ window.onload = function () {
     -Der Start-
     Diese Funktion bewirkt, dass das Terminal mit der Maus nach oben gezogen werden kann (vergrößern)
     */
+
     /*bindSizables();
 
     function bindSizables() {
