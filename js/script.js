@@ -1,124 +1,156 @@
-/* Hier handelt es sich um die click-function der geschweiften Klammern im Code! */
-let singleOpenBracket = "<p class='openBracket'>{</p>";
-let singleCloseBracket = "<p class='closeBracket'>}</p>";
-let fullBrackets = '<p class="fullBrackets">{...}</p>';
-
-function openAccordion(e) {
-    e.stopPropagation();
-    console.log(e)
-    let clickedElement = e.srcElement.closest(".accordion-trigger-container");
-    if (!clickedElement.classList.contains('active')) {
-        clickedElement.classList.add('active');
-        clickedElement.insertAdjacentHTML("afterbegin", singleOpenBracket);
-        clickedElement.insertAdjacentHTML("beforeend", singleCloseBracket);
-        clickedElement.getElementsByClassName("fullBrackets")[0].remove();
-    } else {
-        clickedElement.classList.remove('active');
-        clickedElement.insertAdjacentHTML("afterbegin", fullBrackets);
-        clickedElement.getElementsByClassName("openBracket")[0].remove();
-        clickedElement.getElementsByClassName("closeBracket")[0].remove();
-    }
-}
-
 window.onload = function () {
 
-    var elements = document.getElementsByClassName("accordion-trigger-container");
+    /*
+  -Der Start-
+  Diese Funktion gibt es für das Dropdown-Menu (directory)
+  */
+
+    let dropdown = document.getElementById('dropbtn');
+    let dropdown1 = document.getElementById('dropbtnCSS');
+    let dropdown2 = document.getElementById('dropbtnJS');
+    let dropdown3 = document.getElementById('dropbtnSRC');
+    let dropdownInner = document.getElementById('myDropdown');
+    let dropdownInner1 = document.getElementById('myDropdownCSS');
+    let dropdownInner2 = document.getElementById('myDropdownJS');
+    let dropdownInner3 = document.getElementById('myDropdownSRC');
+    dropdown.addEventListener("click", function () {
+        dropdownInner.classList.toggle('show');
+    })
+    dropdown1.addEventListener("click", function () {
+        dropdownInner1.classList.toggle('show');
+    })
+    dropdown2.addEventListener("click", function () {
+        dropdownInner2.classList.toggle('show');
+    })
+    dropdown3.addEventListener("click", function () {
+        dropdownInner3.classList.toggle('show');
+    })
+
+    /*
+    -Das Ende-
+    Diese Funktion gibt es für das Dropdown-Menu (directory)
+    */
+
+    /*
+    -Der Start-
+    Diese Funktion klappt per Transition das directory ein und vergrößert den CodeEditor!
+    */
+
+    let editorWrapper = document.getElementsByClassName('editor-wrapper')[0];
+    let container = document.getElementById('wholeContainer');
+    let directoryContainer = document.getElementById('directoryButton');
+    directoryContainer.addEventListener("click", function () {
+        container.classList.toggle('hideFilePath');
+    });
+
+    /*
+    -Das Ende-
+    Diese Funktion klappt per Transition das directory ein und vergrößert den CodeEditor!
+    */
+
+    /*
+    -Der Start-
+    Diese Funktion bewirkt, dass die einzelnen Tags mit einer click-funktion aufgeklappt werden können.
+    */
+
+    var elements = document.getElementsByClassName("fullBrackets");
     for (let i = 0; i < elements.length; i++) {
         const element = elements[i];
         element.addEventListener("click", openAccordion);
     }
 
-}
+    let singleOpenBracket = "<p class='openBracket'>{</p>";
+    let singleCloseBracket = "<p class='closeBracket'>}</p>";
+    let fullBrackets = '<p class="fullBrackets">{...}</p>';
 
-/* Hier handelt es sich um die click-function um das Startbild auf hidden zu setzen und den
-   Content des jeweiligen links anzuzeigen. */
-var input = document.getElementById("showHideOne");
-console.log(input);
-input.addEventListener("click", function (e) {
-    var box1 = e.closest(".sub-accordion-container").getElementById("projects-content");
-
-    if(box1.style.display == "none")
-    {
-        box1.style.display = "block";
-    }
-    else
-    {
-        box1.style.display = "none";
-    }
-});
-document.getElementById("showHideTwo").addEventListener("click", function () {
-    var box2 = document.getElementsByClassName("text-container").document.getElementById("aboutMe-content").childNodes;
-    if (box2.style.display == "none") {
-        box2.style.display = "block";
-    } else {
-        box2.style.display = "none";
-    }
-});
-document.getElementById("showHideThree").addEventListener("click", function () {
-    var box3 = document.getElementsByClassName("text-container").document.getElementById("contacts-content").childNodes;
-    if (box3.style.display == "none") {
-        box3.style.display = "block";
-    } else {
-        box3.style.display = "none";
-    }
-});
-
-
-/*
-document.addEventListener("DOMContentLoaded", function(event){
-    var trigger = document.getElementById('')
-});
-
-var rm = function(){
-    jQuery('.accordion-trigger-container .accordion-trigger').html('{...}');
-    jQuery('#added').remove();
-    jQuery('.accordion-trigger-container').children('.sub-accordion-container').toggleClass('active');
-}
-
-
-//jQuery
-//Haupt-Container wird beim klicken auf die Funktionsklammern aufgeklappt und geschlossen
-jQuery(document).ready(function(){
-    jQuery(".accordion-trigger-container .accordion-trigger").click(function(e){
-        //$(this).find("code").css("display", "inline-block");
-        if (!jQuery(this).parent('.accordion-trigger-container').children('.sub-accordion-container').hasClass('active')){
-            jQuery('#added').remove();
-            jQuery(this).html('{');
-            jQuery(this).parent('.accordion-trigger-container').append("<code class='accordion-trigger' id='added' onclick='rm();'>}</code>");
+    function openAccordion(e) {
+        // document.getElementById('accordionContainerID').classList.toggle('active');
+        let clickedElement = e.srcElement.closest(".innerAccordion");
+        if (!clickedElement.classList.contains('active')) {
+            clickedElement.classList.add('active');
+            clickedElement.insertAdjacentHTML("afterend", singleCloseBracket);
+            clickedElement.getElementsByClassName("fullBrackets")[0].innerHTML = '{';
+        } else {
+            clickedElement.classList.remove('active');
+            clickedElement.insertAdjacentHTML("afterbegin", fullBrackets);
+            clickedElement.getElementsByClassName("openBracket")[0].remove();
+            clickedElement.getElementsByClassName("closeBracket")[0].remove();
         }
-        else {
-            jQuery(this).html('{...}');
-            jQuery('#added').remove();
+    }
+
+    /*
+    -Das Ende-
+    Diese Funktion bewirkt, dass die einzelnen Tags mit einer click-funktion aufgeklappt werden können.
+    */
+
+
+    /*
+    -Der Start-
+    Diese Funktion bewirkt, dass das Terminal mit der Maus nach oben gezogen werden kann (vergrößern)
+    */
+
+    /*bindSizables();
+
+    function bindSizables() {
+        let sizableElements = document.getElementsByClassName("sizable");
+        for (let i = 0; i < sizableElements.length; i++) {
+            const element = sizableElements[i];
+            element.addEventListener("pointerdown", handlePointerDown);
+            element.addEventListener("pointerup", handlePointerDown);
+            element.addEventListener("pointerleave", handlePointerDown);
+            element.addEventListener("focusout", handlePointerDown);
         }
+        let bottomToTopElements = document.getElementsByClassName("bottomToTop");
+        for (let i = 0; i < bottomToTopElements.length; i++) {
+            const element = bottomToTopElements[i];
+            element.addEventListener("pointermove", bottomToTop);
+        }
+        let leftToRightElements = document.getElementsByClassName("leftToRight");
+        for (let i = 0; i < leftToRightElements.length; i++) {
+            const element = leftToRightElements[i];
+            element.addEventListener("pointermove", leftToRight);
+        }
+    }
 
+    let touchableArea = 50;
 
-        jQuery(this).parent('.accordion-trigger-container').children('.sub-accordion-container').toggleClass('active');
-    });
+    let pointerDown = false;
 
-
-//Unter-Container wird beim hovern über die Funktionsklammer aufgeklappt und geschlossen
-    jQuery(".sub-accordion-trigger-container .sub-accordion-trigger").hover(function(e){
-
-            if (!jQuery(this).parent('.sub-accordion-trigger-container').children('.text-container').hasClass('active')){
-                jQuery('#added').remove();
-                jQuery(this).html('{');
-                jQuery(this).parent('.sub-accordion-trigger-container').append("<code class='sub-accordion-trigger' id='added' hover='rm();'>}</code>");
+    function handlePointerDown(e) {
+        if (e.type == "pointerdown") {
+            if (e.offsetY < touchableArea && e.srcElement.classList.contains("bottomToTop")) {
+                pointerDown = true;
+            } else if (e.srcElement.clientWidth - e.offsetX < touchableArea && e.srcElement.classList.contains("leftToRight")) {
+                pointerDown = true;
             }
-            else {
-                jQuery(this).html('{...}');
-                jQuery('#added').remove();
-            }
+        } else {
+            pointerDown = false;
+        }
+    }
+
+    function bottomToTop(e) {
+        if (pointerDown) {
+            let boxLowerEdge = e.srcElement.offsetTop + e.srcElement.clientHeight;
+            let newSize = boxLowerEdge - (e.clientY - touchableArea / 2);
+            newSize = newSize / e.srcElement.parentNode.clientHeight * 100;
+            e.srcElement.style.height = newSize + "%";
+        }
+    }
+
+    function leftToRight(e) {
+        if (pointerDown) {
+            let difference = e.offsetX + touchableArea / 2;
+            let relativeToParent = difference / e.srcElement.parentNode.clientWidth * 100;
+            e.srcElement.style.width = relativeToParent + "%";
+        }
+    }*/
+
+    /*
+    -Das Ende-
+    Diese Funktion bewirkt, dass das Terminal mit der Maus nach oben gezogen werden kann (vergrößern)
+    */
 
 
-            jQuery(this).parent('.sub-accordion-trigger-container').children('.text-container').toggleClass('active');
-        });
-
-//function-name soll ein klick Button / Event sein, was den user zu einer neuen detailierteren Seite des Reiters bringt.
-
-
-
-});
-*/
-
+}
 
 
