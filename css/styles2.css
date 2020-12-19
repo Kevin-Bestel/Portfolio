@@ -55,7 +55,6 @@ p {
 #codeEditor {
     height: 100%;
     width: 100%;
-
     grid-row-start: 2;
     grid-row-end: 4;
     grid-column-start: 3;
@@ -94,7 +93,7 @@ p {
     display: table-cell;
 }
 
-.container2 > p {
+.container2>p {
     display: flex;
     align-items: center;
     justify-content: left;
@@ -114,7 +113,7 @@ p {
     grid-column-end: colEnd;
 }
 
-.container3 > p {
+.container3>p {
     color: #ffffff;
     padding-left: 10px;
     display: inline-block;
@@ -127,7 +126,7 @@ p {
     grid-row-end: end;
     grid-column-start: 1;
     grid-column-end: 3;
-    display:flex;
+    display: flex;
     justify-content: flex-start;
 }
 
@@ -142,7 +141,7 @@ p {
     grid-column-end: 3;
 }
 
-.container4 > div {
+.container4>div {
     color: #ffffff;
     font-size: 1.0rem;
 }
@@ -162,7 +161,7 @@ p {
     z-index: 2;
 }
 
-.container5 > div {
+.container5>div {
     color: #ffffff;
     font-size: 1.0rem;
     display: flex;
@@ -193,7 +192,7 @@ p {
     background-color: rgb(66, 66, 66);
 }
 
-.container6 > p {
+.container6>p {
     color: #ffffff;
     font-size: 1rem;
     padding-left: 5px;
@@ -216,7 +215,7 @@ Hier wird die Funktion im Code-Editor dargestellt!
     padding-left: 2.5vw;
 }
 
-.accordionContainer > div {
+.accordionContainer>div {
     padding-top: 1.5vh;
     padding-left: 2.5vw;
 }
@@ -225,11 +224,11 @@ Hier wird die Funktion im Code-Editor dargestellt!
     display: inline-block;
 }
 
-.container1 > div > p {
+.container1>div>p {
     display: inline-block;
 }
 
-.container1 > div > div > p {
+.container1>div>div>p {
     display: inline-block;
 }
 
@@ -260,43 +259,36 @@ Hier wird die Funktion im Code-Editor dargestellt!
     cursor: pointer;
 }
 
-
-.accordionContainer > div .subaccordionContainer > *{
-    display:none !important;
-}
-.accordionContainer > .fullBrackets, .subaccordionContainer > .fullBrackets{
-    display:inline-block !important;
-}
-.accordionContainer.active > *, .subaccordionContainer.active > *{
-    display:block !important;
+.accordionContainer>div .subaccordionContainer>* {
+    display: none !important;
 }
 
+.accordionContainer>.fullBrackets, .subaccordionContainer>.fullBrackets {
+    display: inline-block !important;
+}
+
+.accordionContainer.active>*, .accordionContainer.active .subaccordionContainer > * {
+    display: block !important;
+}
 
 /*
 -Das Ende-
 Hier wird die Funktion im Code-Editor dargestellt!
 */
 
-
 /*
 -Der Start-
 Diese Funktion klappt per Transition das directory ein und vergrößert den CodeEditor!
  */
 
-.directoryButton{
+.directoryButton {
     transform: rotate(270deg) translate(-45%);
 }
-
-
 
 /*
 -Das Ende-
 Diese Funktion klappt per Transition das directory ein und vergrößert den CodeEditor!
  */
-
-
-
-
 
 /*
 -Der Start-
@@ -305,26 +297,14 @@ Hier wird das Dropdown-Menu angepasst!
 
 /* Dropdown-1 Einklappfunktion FilePath */
 
-#wholeContainer.hideFilePath > .editor-wrapper {
+#wholeContainer.hideFilePath>.editor-wrapper {
     width: 97.5vw;
     margin-left: -22.5vw;
 }
 
-#wholeContainer.hideFilePath > .filePath > .container4 {
+#wholeContainer.hideFilePath>.filePath>.container4 {
     width: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 .dropbtn {
     background-color: rgb(66, 66, 66);
@@ -431,9 +411,7 @@ Hier wird das Dropdown-Menu angepasst!
     display: inline-block;
 }
 
-
 /*
 -Das Ende-
 Hier wird das Dropdown-Menu angepasst!
 */
-
