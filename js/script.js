@@ -99,6 +99,26 @@ window.onload = function () {
     let singleOpenBracket = "<p class='openBracket'>{</p>";
     let singleCloseBracket = "<p class='closeBracket'>}</p>";
     let fullBrackets = '<p class="fullBrackets">{...}</p>';
+    
+    function hasClass(elem, className) {
+        return elem.className.split(' ').indexOf(className) > -1;
+    }
+
+    
+    document.addEventListener('click', function (e) {
+        if (hasClass(e.target, 'fullBrackets')) {
+            // .fullBrackets clicked
+            
+            var elements = document.getElementsByClassName("fullBrackets");
+            for (let i = 0; i < elements.length; i++) {
+                const element = elements[i];
+                element.addEventListener("click", openAccordion);
+            }
+            
+        }
+        
+    }, false);
+
 
     function openAccordion(e) {
 
@@ -192,5 +212,3 @@ window.onload = function () {
 
 
 }
-
-
