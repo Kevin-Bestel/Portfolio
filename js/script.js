@@ -99,6 +99,26 @@ window.onload = function () {
     let singleOpenBracket = "<p class='openBracket'>{</p>";
     let singleCloseBracket = "<p class='closeBracket'>}</p>";
     let fullBrackets = '<p class="fullBrackets">{...}</p>';
+    
+    function hasClass(elem, className) {
+        return elem.className.split(' ').indexOf(className) > -1;
+    }
+
+    
+    document.addEventListener('click', function (e) {
+        if (hasClass(e.target, 'fullBrackets')) {
+            // .fullBrackets clicked
+            
+            var elements = document.getElementsByClassName("fullBrackets");
+            for (let i = 0; i < elements.length; i++) {
+                const element = elements[i];
+                element.addEventListener("click", openAccordion);
+            }
+            
+        }
+        
+    }, false);
+
 
     function openAccordion(e) {
 
@@ -129,7 +149,7 @@ window.onload = function () {
     Diese Funktion bewirkt, dass das Terminal mit der Maus nach oben gezogen werden kann (vergrößern)
     */
 
-    /*bindSizables();
+    bindSizables();
 
     function bindSizables() {
         let sizableElements = document.getElementsByClassName("sizable");
@@ -180,10 +200,12 @@ window.onload = function () {
     function leftToRight(e) {
         if (pointerDown) {
             let difference = e.offsetX + touchableArea / 2;
+            let negRelativeToParent = (1 - (difference / e.srcElement.parentNode.clientWidth)) * 100;
             let relativeToParent = difference / e.srcElement.parentNode.clientWidth * 100;
             e.srcElement.style.width = relativeToParent + "%";
+            document.getElementById('editorWrapper').style.width =  negRelativeToParent  + "%";
         }
-    }*/
+    }
 
     /*
     -Das Ende-
@@ -192,5 +214,3 @@ window.onload = function () {
 
 
 }
-
-

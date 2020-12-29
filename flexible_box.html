@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+        }
+        .container{
+            width:100%;
+            height:100%;
+
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .sizable{
+            background-color:rgb(120,30,58);
+            width:50%;
+            height:50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sizable bottomToTop"></div>
+        <div class="sizable leftToRight"></div>
+    </div>
+
+    <script>
+        window.onload = function(){
+            bindSizables();
+        }
+
+        function bindSizables(){
+            let sizableElements = document.getElementsByClassName("sizable");
+            for (let i = 0; i < sizableElements.length; i++) {
+                const element = sizableElements[i];
+                element.addEventListener("pointerdown",handlePointerDown);
+                element.addEventListener("pointerup",handlePointerDown);
+                element.addEventListener("pointerleave",handlePointerDown);
+                element.addEventListener("focusout",handlePointerDown);
+            }
+            let bottomToTopElements = document.getElementsByClassName("bottomToTop");
+            for (let i = 0; i < bottomToTopElements.length; i++) {
+                const element = bottomToTopElements[i];                
+                element.addEventListener("pointermove",bottomToTop);
+            }
+            let leftToRightElements = document.getElementsByClassName("leftToRight");
+            for (let i = 0; i < leftToRightElements.length; i++) {
+                const element = leftToRightElements[i];                
+                element.addEventListener("pointermove",leftToRight);
+            }
+        }
+        
+        let touchableArea = 50;
+
+        let pointerDown = false;
+
+        function handlePointerDown(e){
+            if(e.type == "pointerdown"){
+                if(e.offsetY < touchableArea && e.srcElement.classList.contains("bottomToTop")){
+                    pointerDown = true;
+                }else if(e.srcElement.clientWidth - e.offsetX < touchableArea && e.srcElement.classList.contains("leftToRight")){
+                    pointerDown = true;
+                }
+            }else{
+                pointerDown = false;
+            }
+        }
+
+        function bottomToTop(e){
+            if(pointerDown){
+                let boxLowerEdge = e.srcElement.offsetTop + e.srcElement.clientHeight;
+                let newSize = boxLowerEdge - (e.clientY - touchableArea/2);
+                newSize = newSize / e.srcElement.parentNode.clientHeight * 100;
+                e.srcElement.style.height = newSize+"%";
+            }
+        }
+        function leftToRight(e){
+            if(pointerDown){
+                let difference = e.offsetX + touchableArea/2;
+                let relativeToParent = difference / e.srcElement.parentNode.clientWidth * 100;
+                e.srcElement.style.width = relativeToParent+"%";
+            }
+        }
+    </script>
+</body>
+</html>
