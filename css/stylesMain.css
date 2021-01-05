@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    user-select: none;
+    /* supported by Chrome and Opera */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+}
+
+html body {
+    background-attachment: fixed;
+    overflow: scroll;
+    background-image: url('../src/Skyline_header.jpg');
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+:root {
+    font-size: 16px;
+    font-family: Calibri;
+}
+
+header {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    top: 0;
+    position: sticky;
+}
+
+.midSection {
+    height: 90vh;
+    width: 100%;
+    /*background-color: rgba(0, 140, 0, .5);*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*background-color: rgba(140, 0, 0, 0.5);*/
+    height: 75vh;
+    width: 100%;
+}
+
+/*
+-Der Start-
+Hier wird der Header inkl. dem BurgerMenu gestaltet!
+*/
+
+
+.menu-links {
+    visibility: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-links a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #000;
+    padding: 0vw 1.5vw 0vw 1.5vw;
+}
+
+
+.menu-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    /*border: 3px solid #ffffff;*/
+}
+
+.menu-btn_burger {
+    width: 50px;
+    height: 6px;
+    background-color: #000;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+    transition: all 0.5s ease-in-out;
+}
+
+.menu-btn_burger::before,
+.menu-btn_burger::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 6px;
+    background-color: #000;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+    transition: all 0.5s ease-in-out;
+}
+
+.menu-btn_burger::before {
+    transform: translateY(-16px);
+}
+
+.menu-btn_burger::after {
+    transform: translateY(16px);
+}
+
+/* Burger-Menu Animation */
+.menu-btn.open .menu-btn_burger {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+
+.menu-btn.open .menu-btn_burger::before {
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .menu-btn_burger::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+/*
+-Das Ende-
+Hier wird der Header inkl. dem BurgerMenu gestaltet!
+*/
+
+/*
+-Der Start-
+Hier wird das Kontaktformular gestaltet!
+*/
+
+.contactForm {
+    height: 75vh;
+    width: 50vw;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactForm > article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding-bottom: 1vh;
+}
+
+.contactForm > ul {
+    padding-bottom: 1vh;
+}
+
+.contactForm > * {
+    font-size: 1.2rem;
+}
+
+fieldset {
+    height: 50vh;
+    min-width: 25vw;
+    min-width: 25vw;
+    max-width: 50vw;
+
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    min-width: 25vw;
+    max-width: 50vw;
+    height: 100%;
+}
+/*
+-Das Ende-
+Hier wird das Kontaktformular gestaltet!
+*/
+
+/*
+-Der Start-
+Gestaltung vom Inhalt unter projects
+ */
+
+.projects {
+    visibility: hidden;
+}
+
+.aboutMe {
+    visibility: hidden;
+}
+
+.contacts {
+    visibility: hidden;
+}

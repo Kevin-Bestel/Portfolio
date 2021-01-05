@@ -52,91 +52,92 @@ window.onload = function () {
     -Der Start-
     Diese Funktion bewirkt, dass die einzelnen Tags mit einer click-funktion aufgeklappt werden können.
     */
- /*   document.addEventListener('click', function (e) {
-        if (hasClass(e.target, 'fullBrackets')) {
-            // .fullBrackets clicked
-            var elementsFullBrackets = document.getElementsByClassName("fullBrackets");
-            for (let i = 0; i < elementsFullBrackets.length; i++) {
-                const element = elementsFullBrackets[i];
-                element.addEventListener("click", openAccordion);
-            }
-        } else if (hasClass(e.target, 'openBracket')) {
-            var elementsOpenBracket = document.getElementsByClassName("openBracket");
-            for (let i = 0; i < elementsOpenBracket.length; i++) {
-                const element = elementsOpenBracket[i];
-                element.addEventListener("click", openAccordion);
-            }
-        } else if (hasClass(e.target, 'closeBracket')) {
-            var elementsCloseBracket = document.getElementsByClassName("closeBracket");
-            for (let i = 0; i < elementsCloseBracket.length; i++) {
-                const element = elementsCloseBracket[i];
-                element.addEventListener("click", openAccordion);
-            }
-        }
-    }, false);
 
-    function hasClass(elem, className) {
-        return elem.className.split(' ').indexOf(className) > -1;
-    }
-*/
+    /*   document.addEventListener('click', function (e) {
+           if (hasClass(e.target, 'fullBrackets')) {
+               // .fullBrackets clicked
+               var elementsFullBrackets = document.getElementsByClassName("fullBrackets");
+               for (let i = 0; i < elementsFullBrackets.length; i++) {
+                   const element = elementsFullBrackets[i];
+                   element.addEventListener("click", openAccordion);
+               }
+           } else if (hasClass(e.target, 'openBracket')) {
+               var elementsOpenBracket = document.getElementsByClassName("openBracket");
+               for (let i = 0; i < elementsOpenBracket.length; i++) {
+                   const element = elementsOpenBracket[i];
+                   element.addEventListener("click", openAccordion);
+               }
+           } else if (hasClass(e.target, 'closeBracket')) {
+               var elementsCloseBracket = document.getElementsByClassName("closeBracket");
+               for (let i = 0; i < elementsCloseBracket.length; i++) {
+                   const element = elementsCloseBracket[i];
+                   element.addEventListener("click", openAccordion);
+               }
+           }
+       }, false);
 
-    var elementsFullBrackets = document.getElementsByClassName("fullBrackets");
-    for (let i = 0; i < elementsFullBrackets.length; i++) {
-        const element = elementsFullBrackets[i];
-        element.addEventListener("click", openAccordion);
-    }
-   /* var elementsOpenBracket = document.getElementsByClassName("openBracket");
-    for (let i = 0; i < elementsOpenBracket.length; i++) {
-        const element = elementsOpenBracket[i];
-        element.addEventListener("click", openAccordion);
-    }
-    var elementsCloseBracket = document.getElementsByClassName("closeBracket");
-    for (let i = 0; i < elementsCloseBracket.length; i++) {
-        const element = elementsCloseBracket[i];
-        element.addEventListener("click", openAccordion);
-    } */
-
-    let singleOpenBracket = "<p class='openBracket'>{</p>";
-    let singleCloseBracket = "<p class='closeBracket'>}</p>";
-    let fullBrackets = '<p class="fullBrackets">{...}</p>';
-    
-    function hasClass(elem, className) {
-        return elem.className.split(' ').indexOf(className) > -1;
-    }
-
-    
-    document.addEventListener('click', function (e) {
-        if (hasClass(e.target, 'fullBrackets')) {
-            // .fullBrackets clicked
-            
-            var elements = document.getElementsByClassName("fullBrackets");
-            for (let i = 0; i < elements.length; i++) {
-                const element = elements[i];
-                element.addEventListener("click", openAccordion);
-            }
-            
-        }
-        
-    }, false);
+       function hasClass(elem, className) {
+           return elem.className.split(' ').indexOf(className) > -1;
+       }
 
 
-    function openAccordion(e) {
+       var elementsFullBrackets = document.getElementsByClassName("fullBrackets");
+       for (let i = 0; i < elementsFullBrackets.length; i++) {
+           const element = elementsFullBrackets[i];
+           element.addEventListener("click", openAccordion);
+       }
+      /* var elementsOpenBracket = document.getElementsByClassName("openBracket");
+       for (let i = 0; i < elementsOpenBracket.length; i++) {
+           const element = elementsOpenBracket[i];
+           element.addEventListener("click", openAccordion);
+       }
+       var elementsCloseBracket = document.getElementsByClassName("closeBracket");
+       for (let i = 0; i < elementsCloseBracket.length; i++) {
+           const element = elementsCloseBracket[i];
+           element.addEventListener("click", openAccordion);
+       }
 
-        let clickedElement = e.srcElement.closest(".innerAccordion");
-        let bracketContainer = e.srcElement.closest('.bracketContainer');
-        if (!clickedElement.classList.contains('active')) {
-            clickedElement.classList.add('active');
-            clickedElement.getElementsByClassName("fullBrackets")[0].remove();
-            clickedElement.insertAdjacentHTML("beforeend", singleCloseBracket);
-            bracketContainer.insertAdjacentHTML("afterbegin", singleOpenBracket);
+       let singleOpenBracket = "<p class='openBracket'>{</p>";
+       let singleCloseBracket = "<p class='closeBracket'>}</p>";
+       let fullBrackets = '<p class="fullBrackets">{...}</p>';
 
-        } else {
-            clickedElement.classList.remove('active');
-            clickedElement.insertAdjacentHTML("beforeend", fullBrackets);
-            clickedElement.getElementsByClassName("openBracket")[0].remove();
-            clickedElement.getElementsByClassName("closeBracket")[0].remove();
-        }
-    }
+       function hasClass(elem, className) {
+           return elem.className.split(' ').indexOf(className) > -1;
+       }
+
+
+       document.addEventListener('click', function (e) {
+           if (hasClass(e.target, 'fullBrackets')) {
+               // .fullBrackets clicked
+
+               var elements = document.getElementsByClassName("fullBrackets");
+               for (let i = 0; i < elements.length; i++) {
+                   const element = elements[i];
+                   element.addEventListener("click", openAccordion);
+               }
+
+           }
+
+       }, false);
+
+
+       function openAccordion(e) {
+
+           let clickedElement = e.srcElement.closest(".innerAccordion");
+           let bracketContainer = e.srcElement.closest('.bracketContainer');
+           if (!clickedElement.classList.contains('active')) {
+               clickedElement.classList.add('active');
+               clickedElement.getElementsByClassName("fullBrackets")[0].remove();
+               clickedElement.insertAdjacentHTML("beforeend", singleCloseBracket);
+               bracketContainer.insertAdjacentHTML("afterbegin", singleOpenBracket);
+
+           } else {
+               clickedElement.classList.remove('active');
+               clickedElement.insertAdjacentHTML("beforeend", fullBrackets);
+               clickedElement.getElementsByClassName("openBracket")[0].remove();
+               clickedElement.getElementsByClassName("closeBracket")[0].remove();
+           }
+       } */
 
     /*
     -Das Ende-
@@ -146,7 +147,7 @@ window.onload = function () {
 
     /*
     -Der Start-
-    Diese Funktion bewirkt, dass das Terminal mit der Maus nach oben gezogen werden kann (vergrößern)
+    Diese Funktion bewirkt, dass das Terminal mit der Maus nach oben gezogen und Dropdown nach links und rechts werden kann (vergrößern)
     */
 
     bindSizables();
@@ -190,10 +191,16 @@ window.onload = function () {
 
     function bottomToTop(e) {
         if (pointerDown) {
-            let boxLowerEdge = e.srcElement.offsetTop + e.srcElement.clientHeight;
-            let newSize = boxLowerEdge - (e.clientY - touchableArea / 2);
-            newSize = newSize / e.srcElement.parentNode.clientHeight * 100;
-            e.srcElement.style.height = newSize + "%";
+            //let boxLowerEdge = e.srcElement.offsetTop + e.srcElement.clientHeight;
+            //let newSize = boxLowerEdge - (e.clientY - touchableArea / 2);
+            //newSize = newSize / e.srcElement.parentNode.clientHeight * 100;
+            //e.srcElement.style.height = newSize + "%";
+
+            let difference = e.offsetY + touchableArea / 2;
+            let negRelativeToParent = (1 - (difference / e.srcElement.parentNode.clientHeight)) * 100;
+            let relativeToParent = difference / e.srcElement.parentNode.clientHeight * 100;
+            e.srcElement.style.height = relativeToParent + "%";
+            document.getElementById('terminal').style.height = negRelativeToParent + "%";
         }
     }
 
@@ -203,7 +210,7 @@ window.onload = function () {
             let negRelativeToParent = (1 - (difference / e.srcElement.parentNode.clientWidth)) * 100;
             let relativeToParent = difference / e.srcElement.parentNode.clientWidth * 100;
             e.srcElement.style.width = relativeToParent + "%";
-            document.getElementById('editorWrapper').style.width =  negRelativeToParent  + "%";
+            document.getElementById('editorWrapper').style.width = negRelativeToParent + "%";
         }
     }
 

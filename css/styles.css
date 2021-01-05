@@ -43,7 +43,7 @@ p {
     overflow-y: scroll;
     width: 75%;
     position: relative;
-    border: 2px solid gray;
+    border-bottom: 1px solid rgb(43, 43, 43);
     z-index: 1;
 }
 
@@ -59,10 +59,14 @@ p {
     cursor: col-resize;
 }
 
+.sizableTwo {
+    cursor: row-resize;
+}
+
 /* Konsole */
 
 .container1 {
-    width: 100%;
+    width: 96%;
     z-index: 9998;
     background-color: rgb(43, 43, 43);
     display: table-cell;
@@ -71,7 +75,7 @@ p {
 /* Konsolennavigation */
 
 .container2 {
-    width: 4vw;
+    width: 4%;
     border-right: 1px solid rgb(66, 66, 66);
     border-left: 1px solid rgb(43, 43, 43);
     border-bottom: 1px solid rgb(43, 43, 43);
@@ -80,7 +84,7 @@ p {
     display: table-cell;
 }
 
-.container2>p {
+.container2 > p {
     display: flex;
     align-items: center;
     justify-content: left;
@@ -96,7 +100,7 @@ p {
     background-color: rgb(66, 66, 66);
 }
 
-.container3>p {
+.container3 > p {
     color: #ffffff;
     padding-left: 10px;
     display: inline-block;
@@ -105,30 +109,33 @@ p {
 /* Dateipfad */
 
 #fileMenuRow {
-    height: 1.5vh;
+    height: 2vh;
     width: 100vw;
 }
 
 #editor-row {
-    height: 98.5vh;
+    height: 98vh;
     width: 100vw;
     display: flex;
 }
 
 .editor-inner {
-    height: 98.5vh;
+    height: 98vh;
     width: 97.5vw;
+    flex-direction: column;
+    display: flex;
 }
+
 
 #editor-inner-upper-row {
     display: inline-flex;
     height: 80%;
     width: 100%;
+    flex-direction: row;
 }
 
 .filePath {
     height: 100%;
-    min-width: 11%;
     display: inline-block;
     justify-content: flex-start;
 }
@@ -137,11 +144,11 @@ p {
     height: 100%;
     width: 25%;
     float: right;
-    border: 2px solid gray;
+    border-bottom: 1px solid rgb(43, 43, 43);
     background-color: rgb(66, 66, 66);
 }
 
-.container4>div {
+.container4 > div {
     color: #ffffff;
     font-size: 1.0rem;
 }
@@ -157,7 +164,7 @@ p {
     z-index: 2;
 }
 
-.container5>div {
+.container5 > div {
     color: #ffffff;
     font-size: 1.0rem;
     display: flex;
@@ -177,13 +184,13 @@ p {
 }
 
 .container6 {
-    height: 25px;
+    height: 12%;
     width: 100%;
     border-bottom: 1px solid rgb(43, 43, 43);
     background-color: rgb(66, 66, 66);
 }
 
-.container6>p {
+.container6 > p {
     color: #ffffff;
     font-size: 1rem;
     padding-left: 5px;
@@ -191,7 +198,7 @@ p {
 }
 
 .container7 {
-    height: calc(100%-25px);
+    height: 88%;
     width: 100%;
     top: 0;
     background-color: rgb(66, 66, 66);
@@ -207,7 +214,7 @@ Hier wird die Funktion im Code-Editor dargestellt!
     padding-left: 2.5vw;
 }
 
-.accordionContainer>.subaccordionContainer {
+.accordionContainer > .subaccordionContainer {
     padding-top: 1.5vh;
     padding-left: 2.5vw;
 }
@@ -217,11 +224,11 @@ Hier wird die Funktion im Code-Editor dargestellt!
     padding: 0.5vh 0.5vh 1vw 0vw;
 }
 
-.container1>div>p {
+.container1 > div > p {
     display: inline-block;
 }
 
-.container1>div>div>p {
+.container1 > div > div > p {
     display: inline-block;
 }
 
@@ -253,15 +260,15 @@ Hier wird die Funktion im Code-Editor dargestellt!
     cursor: pointer;
 }
 
-.accordionContainer>#subaccordionContainer {
+.accordionContainer > #subaccordionContainer {
     display: none !important;
 }
 
-.accordionContainer.active>#subaccordionContainer {
+.accordionContainer.active > #subaccordionContainer {
     display: block !important;
 }
 
-.accordionContainer.active>#subaccordionContainer>.subaccordionContainer>div>p {
+.accordionContainer.active > #subaccordionContainer > .subaccordionContainer > div > p {
     display: inline-block !important;
 }
 
@@ -271,13 +278,13 @@ Hier wird die Funktion im Code-Editor dargestellt!
 
 /* Nicht Aktiv - Style */
 
-.accordionContainer>#subaccordionContainer {
+.accordionContainer > #subaccordionContainer {
     padding-top: 1vh;
     padding-left: 2.5vw;
     display: none !important;
 }
 
-.accordionContainer>*, .subaccordionContainer>* {
+.accordionContainer > *, .subaccordionContainer > * {
     display: inline-block !important;
 }
 
@@ -293,7 +300,14 @@ Diese Funktion klappt per Transition das directory ein und vergrößert den Code
 
 .directoryButton {
     transform: rotate(270deg) translate(-45%);
+    margin: 5px 0px 0px -4px;
+    border: none;
+
+    color: #ffffff;
+    background-color: rgb(66, 66, 66);
+    cursor: pointer;
 }
+
 
 /*
 -Das Ende-
