@@ -161,6 +161,14 @@ window.onload = function () {
             element.addEventListener("pointerleave", handlePointerDown);
             element.addEventListener("focusout", handlePointerDown);
         }
+        let sizableElementsTwo = document.getElementsByClassName("sizableTwo");
+        for (let i = 0; i < sizableElementsTwo.length; i++) {
+            const element = sizableElementsTwo[i];
+            element.addEventListener("pointerdown", handlePointerDown);
+            element.addEventListener("pointerup", handlePointerDown);
+            element.addEventListener("pointerleave", handlePointerDown);
+            element.addEventListener("focusout", handlePointerDown);
+        }
         let bottomToTopElements = document.getElementsByClassName("bottomToTop");
         for (let i = 0; i < bottomToTopElements.length; i++) {
             const element = bottomToTopElements[i];
@@ -175,22 +183,24 @@ window.onload = function () {
 
     let touchableArea = 50;
 
-    let pointerDown = false;
+    let pointerDownX = false;
+    let pointerDownY = false;
 
     function handlePointerDown(e) {
         if (e.type == "pointerdown") {
-            if (e.offsetY < touchableArea && e.srcElement.classList.contains("bottomToTop")) {
-                pointerDown = true;
+            if (e.srcElement.clientHeight - e.offsetY < touchableArea && e.srcElement.classList.contains("bottomToTop")) {
+                pointerDownY = true;
             } else if (e.srcElement.clientWidth - e.offsetX < touchableArea && e.srcElement.classList.contains("leftToRight")) {
-                pointerDown = true;
+                pointerDownX = true;
             }
         } else {
-            pointerDown = false;
+            pointerDownY = false;
+            pointerDownX = false;
         }
     }
 
     function bottomToTop(e) {
-        if (pointerDown) {
+        if (pointerDownY) {
             //let boxLowerEdge = e.srcElement.offsetTop + e.srcElement.clientHeight;
             //let newSize = boxLowerEdge - (e.clientY - touchableArea / 2);
             //newSize = newSize / e.srcElement.parentNode.clientHeight * 100;
@@ -199,13 +209,13 @@ window.onload = function () {
             let difference = e.offsetY + touchableArea / 2;
             let negRelativeToParent = (1 - (difference / e.srcElement.parentNode.clientHeight)) * 100;
             let relativeToParent = difference / e.srcElement.parentNode.clientHeight * 100;
-            e.srcElement.style.height = relativeToParent + "%";
+            document.getElementById('editor-inner-upper-row').style.height = relativeToParent + "%";
             document.getElementById('terminal').style.height = negRelativeToParent + "%";
         }
     }
 
     function leftToRight(e) {
-        if (pointerDown) {
+        if (pointerDownX) {
             let difference = e.offsetX + touchableArea / 2;
             let negRelativeToParent = (1 - (difference / e.srcElement.parentNode.clientWidth)) * 100;
             let relativeToParent = difference / e.srcElement.parentNode.clientWidth * 100;

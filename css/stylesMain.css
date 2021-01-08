@@ -41,22 +41,43 @@ header {
     position: sticky;
 }
 
+.slogan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    right: 0;
+    position: relative;
+
+    padding-left: 7.5vw;
+}
+
 .midSection {
     height: 90vh;
     width: 100%;
-    /*background-color: rgba(0, 140, 0, .5);*/
+    /* background-color: rgba(0, 140, 0, .5); */
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 }
 
 footer {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    /*background-color: rgba(140, 0, 0, 0.5);*/
-    height: 75vh;
+    justify-content: flex-start;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 5vh;
     width: 100%;
+
+    overflow: scroll;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
 }
 
 /*
@@ -153,21 +174,21 @@ Hier wird das Kontaktformular gestaltet!
 
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+
+    padding-left: 2.5vw;
 }
 
-.contactForm > article {
+.upperContactForm {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-
-    padding-bottom: 1vh;
+    padding-bottom: 1.5vh;
 }
 
-.contactForm > ul {
-    padding-bottom: 1vh;
+.upperContactForm > ul {
+    padding-left: 1vw;
 }
 
 .contactForm > * {
@@ -180,6 +201,7 @@ fieldset {
     min-width: 25vw;
     max-width: 50vw;
 
+
     display: flex;
     flex-direction: column;
 }
@@ -187,8 +209,17 @@ fieldset {
 textarea {
     min-width: 25vw;
     max-width: 50vw;
-    height: 100%;
+    min-height: 75%;
+    max-height: 75%;
+    background-color: rgb(145, 145, 145);
 }
+
+input {
+    min-width: 25vw;
+    max-width: 50vw;
+    background-color: rgb(145, 145, 145);
+}
+
 /*
 -Das Ende-
 Hier wird das Kontaktformular gestaltet!
@@ -196,17 +227,77 @@ Hier wird das Kontaktformular gestaltet!
 
 /*
 -Der Start-
-Gestaltung vom Inhalt unter projects
+Gestaltung vom Inhalt unter projects / aboutMe / contacts
  */
 
-.projects {
+.whiteOverlay {
+    height: 100%;
+    width: 65%;
+
     visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10%;
+}
+
+.projects {
+    display: none;
+}
+
+.projects > article {
+    padding-left: 2.5vw;
+    padding-bottom: 30vw;
+}
+
+.projects > article > h2 {
+    padding-top: 3.5vw;
+}
+
+.projects > article > ul {
+    padding-top: 2.5vh;
+    padding-left: 3.5vw;
 }
 
 .aboutMe {
-    visibility: hidden;
+    display: none;
 }
 
 .contacts {
-    visibility: hidden;
+    display: none;
 }
+
+/*
+-Das Ende-
+Gestaltung vom Inhalt unter projects
+ */
+
+
+/*
+-Der Start-
+Hier wird das Impressum und das Anpassbare div gestaltet.
+ */
+.impressumBtn {
+    color: #000000;
+}
+
+.impressum {
+    height: 100%;
+    width: 100%;
+
+    display: none;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: flex-start;
+}
+
+.impressum > article {
+    padding-bottom: 1vh;
+}
+
+/*
+-Das Ende-
+Hier wird das Impressum und das Anpassbare div gestaltet.
+ */
