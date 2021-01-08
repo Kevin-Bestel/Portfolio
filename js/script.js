@@ -188,7 +188,9 @@ window.onload = function () {
 
     function handlePointerDown(e) {
         if (e.type == "pointerdown") {
-            if (e.srcElement.clientHeight - e.offsetY < touchableArea && e.srcElement.classList.contains("bottomToTop")) {
+            console.log("pointdownevent laeuft! -> e.srcElement: " + e.srcElement);
+            if (e.srcElement.parentNode.clientHeight - e.offsetY < touchableArea && e.srcElement.classList.contains("bottomToTop")) {
+                console.log("pointdown true!");
                 pointerDownY = true;
             } else if (e.srcElement.clientWidth - e.offsetX < touchableArea && e.srcElement.classList.contains("leftToRight")) {
                 pointerDownX = true;
@@ -207,10 +209,11 @@ window.onload = function () {
             //e.srcElement.style.height = newSize + "%";
 
             let difference = e.offsetY + touchableArea / 2;
-            let negRelativeToParent = (1 - (difference / e.srcElement.parentNode.clientHeight)) * 100;
-            let relativeToParent = difference / e.srcElement.parentNode.clientHeight * 100;
-            document.getElementById('editor-inner-upper-row').style.height = relativeToParent + "%";
-            document.getElementById('terminal').style.height = negRelativeToParent + "%";
+            let relativeToParent = difference / e.srcElement.parentNode.parentNode.clientHeight * 100;
+            let negRelativeToParent = (2  - difference / e.srcElement.parentNode.parentNode.clientHeight) * 100;
+            
+            e.srcElement.parentNode.parentNode.style.height = relativeToParent + "%";
+            document.getElementById('editor-inner-upper-row').style.height = negRelativeToParent + "%";
         }
     }
 
